@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,17 @@ INSTALLED_APPS = [
     'hospitalBackend',
 ]
 
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'UPDATE_LAST_LOGIN': False,
+    'ALGORITHM': 'HS256',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,7 +64,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+            'DEFAULT_PERMISSION_CLASSES': (
+            'rest_framework.permissions.AllowAny',
+            ),
+            'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+            )
+}
+
 ROOT_URLCONF = 'HospitalCasa.urls'
+AUTH_USER_MODEL = 'hospitalBackend.Usuario'
 
 TEMPLATES = [
     {
@@ -78,8 +100,12 @@ WSGI_APPLICATION = 'HospitalCasa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dc7917vkv0k0sm',
+        'USER': 'juwlvancutkhxo',
+        'PASSWORD': '059e7de3d9aaae7bf690e6fa53101d61b41ed1e5616e48fbe174817e80949973',
+        'HOST': 'ec2-44-209-158-64.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
