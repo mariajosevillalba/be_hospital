@@ -30,7 +30,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     nombre=models.CharField('Nombre', max_length=50)
     apellido=models.CharField('Apellido', max_length=50)
     celular=models.CharField('Nombre', max_length=50) 
-    e_mail=models.CharField('Correo', max_length=50)
+    e_mail=models.EmailField('Correo', max_length=50)
     direccion=models.CharField('Direccion', max_length=50)
     username=models.CharField('Username', max_length=50, unique=True)
     password=models.CharField('Password', max_length=50)
