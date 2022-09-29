@@ -33,6 +33,7 @@ urlpatterns = [
     path('paciente/<int:pk>/', views.pacienteView.PacienteRetrieveUpdateDeleteView.as_view()),
     path('familiar/', views.familiarView.FamiliarListCreateView.as_view()),  
     path('familiar/<int:pk>/', views.familiarView.FamiliarRetrieveUpdateDeleteView.as_view()),
+    path('userlogin/', views.UserCreateView.usercreateview.as_view()), 
         
 # =======
 #     path('user/', views.UsuarioListView.as_view()),  

@@ -5,6 +5,8 @@ from .enfermeropacienteView import EnfermeroPacienteListCreateView, EnfermeroPac
 from .historiaView import HistoriaListCreateView, HistoriaRetrieveUpdateDeleteView
 from .pacienteView import PacienteListCreateView, PacienteRetrieveUpdateDeleteView
 from .familiarView import FamiliarListCreateView, FamiliarRetrieveUpdateDeleteView
+from .UserCreateView import usercreateview
+from .UserCreateView import usercreateview
 
  
 # =======
