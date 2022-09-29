@@ -5,3 +5,6 @@ from .enfermeropacienteSerializer import EnfermeroPacienteSerializer
 from .historiaSerializer import HistoriaSerializer
 from .pacienteSerializer import PacienteSerializer
 from .familiarSerializer import FamiliarSerializer
+
+#from .pacienteSerializer import PacienteSerializer
+

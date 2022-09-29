@@ -7,3 +7,7 @@ from .pacienteView import PacienteListCreateView, PacienteRetrieveUpdateDeleteVi
 from .familiarView import FamiliarListCreateView, FamiliarRetrieveUpdateDeleteView
 
  
+# =======
+# from .pacienteView import createpaciente, detailpaciente
+# from .UserCreateView import usercreateview
+

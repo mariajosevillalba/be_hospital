@@ -34,4 +34,13 @@ urlpatterns = [
     path('familiar/', views.familiarView.FamiliarListCreateView.as_view()),  
     path('familiar/<int:pk>/', views.familiarView.FamiliarRetrieveUpdateDeleteView.as_view()),
         
+# =======
+#     path('user/', views.UsuarioListView.as_view()),  
+#     path('user/<int:pk>/', views.UsuarioRetrieveUpdateDeleteView.as_view()),  
+#     path('medico/', views.MedicoListCreateView.as_view()),  
+#     path('medico/<int:pk>/', views.MedicoRetrieveUpdateView.as_view()),  
+#     path('paciente/', views.createpaciente),
+#     path('paciente/<int:pk>/', views.detailpaciente),
+#     path('userlogin/', views.usercreateview.as_view()), 
+
 ]
