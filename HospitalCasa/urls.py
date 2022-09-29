@@ -19,8 +19,19 @@ from hospitalBackend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', views.UsuarioListView.as_view()),  
-    path('user/<int:pk>/', views.UsuarioRetrieveUpdateDeleteView.as_view()),  
-    path('medico/', views.MedicoListCreateView.as_view()),  
-    path('medico/<int:pk>/', views.MedicoRetrieveUpdateView.as_view()),  
+    path('user/', views.userView.UsuarioListView.as_view()),  
+    path('user/<int:pk>/', views.userView.UsuarioRetrieveUpdateDeleteView.as_view()),  
+    path('medico/', views.medicoView.MedicoListCreateView.as_view()),  
+    path('medico/<int:pk>/', views.medicoView.MedicoRetrieveUpdateView.as_view()),
+    path('enfermero/', views.enfermeroView.EnfermeroListCreateView.as_view()),  
+    path('enfermero/<int:pk>/', views.enfermeroView.EnfermeroRetrieveUpdateDeleteView.as_view()),
+    path('enfermeroPaciente/', views.enfermeropacienteView.EnfermeroPacienteListCreateView.as_view()),  
+    path('enfermeroPaciente/<int:pk>/', views.enfermeropacienteView.EnfermeroPacienteRetrieveUpdateDeleteView.as_view()),
+    path('historia/', views.historiaView.HistoriaListCreateView.as_view()),  
+    path('historia/<int:pk>/', views.historiaView.HistoriaRetrieveUpdateDeleteView.as_view()),
+    path('paciente/', views.pacienteView.PacienteListCreateView.as_view()),  
+    path('paciente/<int:pk>/', views.pacienteView.PacienteRetrieveUpdateDeleteView.as_view()),
+    path('familiar/', views.familiarView.FamiliarListCreateView.as_view()),  
+    path('familiar/<int:pk>/', views.familiarView.FamiliarRetrieveUpdateDeleteView.as_view()),
+        
 ]
