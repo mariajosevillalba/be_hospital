@@ -6,7 +6,7 @@ from hospitalBackend.models.paciente import Paciente
 class PacienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Paciente
-        fields = ['id', 'usuario', 'medico']
+        fields = ['id', 'usuario', 'medico', 'enfermero', 'historia', 'familiar']
 # =======
 #         model=Paciente
 #         fields=('usuario','medico')

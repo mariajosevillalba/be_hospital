@@ -20,7 +20,7 @@ class EnfermeroPacienteListCreateView(generics.ListCreateAPIView):
         return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
-        print("Post a EnfermeroPciente")  
+        print("Post a EnfermeroPaciente")  
         print(request.data)
 
         usuarioData = request.data.pop('usuario')
