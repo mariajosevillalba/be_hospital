@@ -6,10 +6,7 @@ from .historiaView import HistoriaListCreateView, HistoriaRetrieveUpdateDeleteVi
 from .pacienteView import PacienteListCreateView, PacienteRetrieveUpdateDeleteView
 from .familiarView import FamiliarListCreateView, FamiliarRetrieveUpdateDeleteView
 from .UserCreateView import usercreateview
-from .UserCreateView import usercreateview
 
  
-# =======
-# from .pacienteView import createpaciente, detailpaciente
-# from .UserCreateView import usercreateview
+
 

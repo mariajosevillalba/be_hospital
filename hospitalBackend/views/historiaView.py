@@ -1,7 +1,10 @@
-from turtle import update
+from django.conf import settings
 from rest_framework import generics, status
 from rest_framework.response import Response
-#from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework.permissions import IsAuthenticated
+# from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+# from rest_framework_simplejwt.backends import TokenBackend
+
 from hospitalBackend.serializers.historiaSerializer import HistoriaSerializer
 from hospitalBackend.serializers.usuarioSerializer import UsuarioSerializer
 from hospitalBackend.models.usuario import Usuario
@@ -11,7 +14,7 @@ from hospitalBackend.models.historia import Historia
 class HistoriaListCreateView(generics.ListCreateAPIView):  
     queryset = Historia.objects.all()
     serializer_class = HistoriaSerializer
-    #permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def list(self, request):
         print("GET a todos los Historia")
@@ -29,7 +32,7 @@ class HistoriaListCreateView(generics.ListCreateAPIView):
         usuario = serializerU.save() 
 
         hisData = request.data        
-        hisData = update({"usuario":usuario.id})
+        hisData.update({"usuario":usuario.id})
         serializerHis = HistoriaSerializer(data=hisData)
         serializerHis.is_valid(raise_exception=True)
         serializerHis.save() 
@@ -40,25 +43,43 @@ class HistoriaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = HistoriaSerializer
     lookup_field = "id"             # campo con el que se realiza la búsqueda de los objetos
     lookup_url_kwarg = 'pk'         # nombre dado en la url al argumento
-    #permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, *args, **kwargs):
         print("GET a Historia")
-        """ if valid_data['user_id'] != kwargs['pk']:
-            stringResponse = {'detail':'Unauthorized Request'}
-            return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED) """
+
+        # token = request.META.get('HTTP_AUTHORIZATION')[7:]
+        # tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
+        # valid_data = tokenBackend.decode(token,verify=False)
+
+        # if valid_data['user_id'] != kwargs['pk']:
+        #     stringResponse = {'detail':'Unauthorized Request'}
+        #     return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
+         
         return super().get(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
         print("PUT a Historia")
-        """ if valid_data['user_id'] != kwargs['pk']:
-            stringResponse = {'detail':'Unauthorized Request'}
-            return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED) """
+
+        # token = request.META.get('HTTP_AUTHORIZATION')[7:]
+        # tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
+        # valid_data = tokenBackend.decode(token,verify=False)
+
+        # if valid_data['user_id'] != kwargs['pk']:
+        #     stringResponse = {'detail':'Unauthorized Request'}
+        #     return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
+         
         return super().put(request, *args, **kwargs)
     
     def delete(self, request, *args, **kwargs):
         print("DELETE a Historia")
-        """ if valid_data['user_id'] != kwargs['pk']:
-            stringResponse = {'detail':'Unauthorized Request'}
-            return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED) """
+
+        # token = request.META.get('HTTP_AUTHORIZATION')[7:]
+        # tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
+        # valid_data = tokenBackend.decode(token,verify=False)
+
+        # if valid_data['user_id'] != kwargs['pk']:
+        #     stringResponse = {'detail':'Unauthorized Request'}
+        #     return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
+        
         return super().delete(request, *args, **kwargs)
